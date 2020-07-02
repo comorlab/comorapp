@@ -4,12 +4,10 @@
 Before starting make sure you have docker and docker-compse installed on your local machine.
 
 ```bash
+# This process can take several minutes. Be patient ! 
 docker-compose build
 docker-compose up -d
 ```
-
-This process can some minutes. Be patient !
-
 
 Check if everything is Up and running 
 ```bash
