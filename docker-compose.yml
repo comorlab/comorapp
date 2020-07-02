@@ -1,0 +1,44 @@
+version: '3'
+services:
+  php:
+    build: docker
+    volumes:
+      - ./docker/vhosts:/etc/apache2/sites-enabled
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/99-php-custom.ini
+      - .:/api:cached
+
+    working_dir: /api
+    environment:
+      DATABASE_URL: "mysql://root:comorapp@db/comorapp"
+    depends_on:
+      - db
+      - maildev
+    ports:
+      - 80:80
+      - 8000:8000
+    user: ${CUID}:${CGID}
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: comorapp
+      MYSQL_USER: comorapp
+      MYSQL_PASSWORD: comorapp
+      MYSQL_ROOT_PASSWORD: comorapp
+    volumes:
+      - comorapp-data:/var/lib/mysql
+
+  maildev:
+    image: djfarrelly/maildev:1.1.0
+    depends_on:
+      - db
+    ports:
+      - 1080:80
+
+volumes:
+  comorapp-data:
