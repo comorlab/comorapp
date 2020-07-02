@@ -23,4 +23,4 @@ docker-compose exec php symfony server:start # optional
 
 Now go to http://localhost. Enjoy !
 
-Now go to http://localhost:8000. Enjoy !
+Now go to http://localhost:8000. Enjoy ! # optional
