@@ -24,15 +24,21 @@ docker-compose up -d
 docker-compose ps
 ```
 
-### Install required dependencies
+### Install the required dependencies
 
 If everything is Up then run the commands below
 
 ```bash
 docker-compose exec php composer install
-docker-compose exec php symfony server:start # optional
 ```
 
 Now go to http://localhost. Enjoy !
 
-Now go to http://localhost:8000. Enjoy ! # optional
+### Start the symfony server
+
+These steps are optional
+
+```bash
+docker-compose exec php symfony server:start
+```
+Now go to http://localhost:8000. Enjoy !
