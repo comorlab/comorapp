@@ -1,7 +1,7 @@
 
 # Installation
 
-Before starting make sure you have git, docker and docker-compse installed on your local machine.
+Before starting make sure you have git, docker and docker-compose installed on your local machine.
 
 ### Clone the project 
 
